@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-
+# probably going to want step 15 --Add a before_filter to any controller that you want to secure. This will force user's to login before they can see the actions in this controller. https://gist.github.com/thebucknerlife/10090014
   def show
   end
 
