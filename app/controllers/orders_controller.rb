@@ -2,6 +2,14 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+
+    line_items_ref = LineItem.select { |li| li[:order_id] == params[:id].to_i }
+
+    @line_items = line_items_ref.map { |li| {
+      quantity: li[:quantity],
+      total_price_cents: li[:total_price_cents],
+      product: Product.find(li[:product_id])
+      } }
   end
 
   def create
@@ -54,6 +62,8 @@ class OrdersController < ApplicationController
     end
     order.save!
     order
+
   end
+
 
 end
