@@ -1,5 +1,6 @@
 class Admin::ProductsController < ApplicationController
-  http_basic_authenticate_with username: ENV['USERNAME'], password: ENV['PASSWORD']
+  http_basic_authenticate_with username: ENV['USERNAME'], password: ENV['PASSWORD'], except:
+
   def index
     @products = Product.order(id: :desc).all
   end
