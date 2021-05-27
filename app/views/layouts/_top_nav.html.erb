@@ -48,8 +48,8 @@
           <% end %>
         </li>
         <% if current_user %>
-          <li>
-          Signed in as <%= current_user.name %>
+          <li><span class="signed-in">
+          Signed in as <%= current_user.name %></span>
           </li>
           <li>
             <%= link_to "Logout", '/logout' %>
