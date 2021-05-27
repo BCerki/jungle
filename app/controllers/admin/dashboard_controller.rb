@@ -1,4 +1,4 @@
-class Admin::DashboardController < ApplicationController
+class Admin::DashboardController < Admin::BaseController
   def show
     @num_of_products = count_products
     @num_of_categories = count_categories
