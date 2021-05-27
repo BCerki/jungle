@@ -5,10 +5,11 @@
   </header>
 
   <div class="order-summary jumbotron">
-    <h4>Thank you for your order, <%= @order.email %>!</h4>
-   @line_items start:
-    <% @line_items %>finish
-
+    <% if @order.email%>
+      <h4>Thank you for your order, <%= @order.email %>!</h4>
+    <% else %>
+      <h4>Thank you for your order!</h4>
+    <% end %>
 
   </div>
 
