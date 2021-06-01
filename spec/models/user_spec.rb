@@ -66,6 +66,21 @@ RSpec.describe User, type: :model do
         expect(expected).to be_nil
       end
 
+      it "should login if email had whitespace" do
+        user = User.create(:first_name =>  "Firstname", :last_name => "Surname", :email => "email11@email.com", :password => "password", :password_confirmation => "password")
+        puts user
+        expected = User.authenticate_with_credentials("   email11@email.com  ", "password")
+        expect(user).to eq(expected)
+      end
+
+
+      it "should login if wrong case" do
+        user = User.create(:first_name =>  "Firstname", :last_name => "Surname", :email => "email12@email.com", :password => "password", :password_confirmation => "password")
+        puts user
+        expected = User.authenticate_with_credentials("Email12@emAil.cOm", "password")
+        expect(user).to eq(expected)
+      end
+
     end
 
 
