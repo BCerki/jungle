@@ -6,8 +6,12 @@
   <div class="col-sm-6 col-sm-offset-1">
     <%= form_for :user, url: '/users' do |f| %>
       <div class="form-group">
-        <label>Name</label>
-        <%= f.text_field :name, class: 'form-control' %>
+        <label>First name</label>
+        <%= f.text_field :first_name, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+      <label>Last name</label>
+        <%= f.text_field :last_name, class: 'form-control' %>
       </div>
       <div class="form-group">
         <label>Email</label>
