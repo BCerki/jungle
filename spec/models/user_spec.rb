@@ -39,6 +39,14 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages.first).to eq("Password confirmation doesn't match Password")
     end
 
+    describe "Password minimum length" do
+
+      it "needs to have at least three characters" do
+        @user = User.create(:first_name =>  "Firstname", :last_name => "Surname", :email => "email@email.com", :password => "p", :password_confirmation => "p")
+        expect(@user.errors.full_messages.first).to eq("Password is too short (minimum is 3 characters)")
+      end
+
+    end
 
   end
 end
