@@ -5,10 +5,17 @@ class SessionsController < ApplicationController
       # Save the user id inside the browser cookie. This is how we keep the user
       # logged in when they navigate around our website.
       session[:user_id] = user.id
+      flash[:alert] = nil
       redirect_to '/'
     else
     # If user's login doesn't work, send them back to the login form.
-      redirect_to '/login'
+      # session[:login_error] = "invalid credentials"
+      # redirect_to login_path, login_error: "The email or password is incorrect"
+      # render
+      # redirect_to login_path(error: "Invalid credentials")
+      flash[:alert] = "Invalid credentials"
+      redirect_to login_path
+
     end
   end
 

@@ -49,7 +49,7 @@
         </li>
         <% if current_user %>
           <li><span class="signed-in">
-          Signed in as <%= current_user.name %></span>
+          Signed in as <%= current_user.email %></span>
           </li>
           <li>
             <%= link_to "Logout", '/logout' %>
