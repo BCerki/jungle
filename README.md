@@ -68,3 +68,7 @@ Set up database cleaner per docs: https://github.com/DatabaseCleaner/database_cl
 - Bcrpypt
 
 ## Screenshots
+
+!["Home page"](https://github.com/BCerki/jungle/blob/master/docs/admin-page.PNG?raw=true)
+!["Sign up page"](https://github.com/BCerki/jungle/blob/master/docs/signup-form.PNG?raw=true)
+!["Admin page"](https://github.com/BCerki/jungle/blob/master/docs/admin-page.PNG?raw=true)
