@@ -5,6 +5,11 @@
   </header>
 
   <div class="order-summary jumbotron">
+  <% flash.each do |type, msg| %>
+    <div class="alert alert-danger">
+      <%= msg %>
+    </div>
+  <% end %>
     <% if @order.email%>
       <h4>Thank you for your order, <%= @order.email %>!</h4>
     <% else %>

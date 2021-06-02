@@ -7,7 +7,11 @@
   <div class="well">
     <%= link_to '+ New Category', [:new, :admin, :category], class: 'btn btn-info' %>
   </div>
-
+  <% flash.each do |type, msg| %>
+    <div class="alert alert-danger">
+      <%= msg %>
+    </div>
+  <% end %>
   <div class="panel panel-default categories">
 
     <table class="table table-bordered">
