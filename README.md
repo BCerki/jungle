@@ -6,8 +6,8 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 
 1. Make sure that you are runnning Ruby 2.6.6 (`ruby -v`)
 1. Install ImageMagick `brew install imagemagick imagemagick@6 --build-from-source`
-2. Remove Gemfile.lock
-3. Replace Gemfile with version provided [here](https://gist.githubusercontent.com/FrancisBourgouin/831795ae12c4704687a0c2496d91a727/raw/ce8e2104f725f43e56650d404169c7b11c33a5c5/Gemfile)
+1. Remove Gemfile.lock
+1. Replace Gemfile with version provided [here](https://gist.githubusercontent.com/FrancisBourgouin/831795ae12c4704687a0c2496d91a727/raw/ce8e2104f725f43e56650d404169c7b11c33a5c5/Gemfile)
 
 ## Setup
 
@@ -26,8 +26,45 @@ Use Credit Card # 4111 1111 1111 1111 for testing success scenarios.
 
 More information in their docs: <https://stripe.com/docs/testing#cards>
 
+## RSpec, Capybara, and Poltergeist Testing
+
+Set up RSpec per their docs: https://github.com/rspec/rspec-rails
+
+Install phantomjs: `npm install -g phantomjs`
+
+Under the `group :development, :test do` section of the Gemfile, add:
+
+```
+gem 'capybara'
+gem 'poltergeist'
+gem 'database_cleaner'
+```
+
+Install: `bundle install
+
+In rails_helper.rb:
+
+1. At the top of the file add:
+
+```
+require "capybara/rails"
+require "capybara/rspec"
+require "capybara/poltergeist"
+```
+
+2. Change `config.use_transactional_fixtures` to false
+
+3. Uncomment `Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }`
+
+Set up database cleaner per docs: https://github.com/DatabaseCleaner/database_cleaner#rspec-with-capybara-example
+
 ## Dependencies
 
-* Rails 4.2 [Rails Guide](http://guides.rubyonrails.org/v4.2/)
-* PostgreSQL 9.x
-* Stripe
+- Rails 4.2 [Rails Guide](http://guides.rubyonrails.org/v4.2/)
+- PostgreSQL 9.x
+- Stripe
+- Capybara
+- Poltergeist
+- Bcrpypt
+
+## Screenshots
